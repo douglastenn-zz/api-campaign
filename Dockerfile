@@ -4,6 +4,4 @@ WORKDIR /api-campaign
 
 ADD . /api-campaign
 
-RUN mvn clean package
-
-CMD ["java", "-jar", "target/campaign-v1-0.0.1-SNAPSHOT.jar"]
+CMD ["mvn", "spring-boot:run"]

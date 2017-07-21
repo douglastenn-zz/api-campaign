@@ -25,8 +25,9 @@ public class CampaignController {
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public ResponseEntity<Campaign> show(@PathVariable("id") String id) {
-        Campaign campaign = this.campaignService.findById(id);
-        return new ResponseEntity<>(campaign, HttpStatus.OK);
+        return this.campaignService.findById(id)
+                .map(c -> new ResponseEntity<>(c, HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NO_CONTENT));
     }
 
     @RequestMapping(method = RequestMethod.POST)

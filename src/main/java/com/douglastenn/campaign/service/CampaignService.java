@@ -4,6 +4,7 @@ import com.douglastenn.campaign.domain.entity.Campaign;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public interface CampaignService {
@@ -16,5 +17,5 @@ public interface CampaignService {
 
     void delete(String id);
 
-    Campaign findById(String id);
+    Optional<Campaign> findById(String id);
 }

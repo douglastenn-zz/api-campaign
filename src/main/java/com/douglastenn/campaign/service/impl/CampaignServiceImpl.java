@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
@@ -23,8 +24,8 @@ public class CampaignServiceImpl implements CampaignService {
     }
 
     @Override
-    public Campaign findById(String id) {
-        return this.campaignRepository.findById(id);
+    public Optional<Campaign> findById(String id) {
+        return Optional.ofNullable(this.campaignRepository.findById(id));
     }
 
     @Override
